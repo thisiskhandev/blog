@@ -1,5 +1,7 @@
 import Image from "next/image";
 import React from "react";
+import DefaultImg from "../../assets/images/default-product-image.png";
+import styles from "../../styles/Product.module.css";
 
 const Card = (props) => {
   const { title, desc, price, imgsrc } = props;
@@ -7,18 +9,20 @@ const Card = (props) => {
     <div className="card card-compact w-96 bg-base-100 shadow-xl">
       <figure>
         <Image
-          src={imgsrc || "https://placeimg.com/400/225/arch"}
+          src={imgsrc || DefaultImg}
           alt={title}
           width={400}
-          height={400}
-          className="object-cover"
+          height={300}
+          className={"object-cover object-top " + styles.img}
         />
       </figure>
       <div className="card-body">
         <h2 className="card-title">{title || "TITLE"}</h2>
         <p>{desc || "Description"}</p>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">Buy ({"$"+price || "PRICE"})</button>
+          <button className="btn btn-primary">
+            Buy ({"$" + price || "PRICE"})
+          </button>
         </div>
       </div>
     </div>
