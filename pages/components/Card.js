@@ -3,8 +3,8 @@ import React from "react";
 import DefaultImg from "../../assets/images/default-product-image.png";
 import styles from "../../styles/Product.module.css";
 
-const Card = (props) => {
-  const { title, desc, price, imgsrc } = props;
+export default function Card(props) {
+  const { title, desc, price, imgsrc} = props;
   return (
     <div className="card card-compact w-96 bg-base-100 shadow-xl">
       <figure>
@@ -18,7 +18,7 @@ const Card = (props) => {
       </figure>
       <div className="card-body">
         <h2 className="card-title">{title || "TITLE"}</h2>
-        <p>{desc || "Description"}</p>
+        <p style={{ ...excerpt }}>{desc || "Description"}</p>
         <div className="card-actions justify-end">
           <button className="btn btn-primary">
             Buy ({"$" + price || "PRICE"})
@@ -27,6 +27,11 @@ const Card = (props) => {
       </div>
     </div>
   );
-};
+}
 
-export default Card;
+const excerpt = {
+  whiteSpace: "nowrap",
+  overflow: "hidden",
+  textOverflow: "ellipsis",
+  maxWidth: "200px",
+};
