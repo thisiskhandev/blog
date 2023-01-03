@@ -1,10 +1,12 @@
-import Card from "./components/Card";
-import productsList from "./api/API";
+import Card from "@components/Card";
+import productsList from "../api/API";
 import { useEffect, useState } from "react";
-import { SERVER_URL } from "./components/constants";
-import SkeletonCard from "./components/SkeletonCard";
+import { SERVER_URL } from "@components/constants";
+import SkeletonCard from "@components/SkeletonCard";
+import Wrapper from "@components/Wrapper";
+import Headings from "@components/Headings";
 
-const products = () => {
+export default function Products() {
   const [product, setProduct] = useState([]);
   const [isLoading, setLoading] = useState(false);
   useEffect(() => {
@@ -20,16 +22,17 @@ const products = () => {
   }, []);
 
   return (
-    <main className="">
-      <div className="p-36">
-        <h1 className="text-5xl font-bold text-center mb-16">Products</h1>
-        <div className="grid gap-4 grid-cols-3 grid-rows-3">
+    <Wrapper>
+      <section>
+        <Headings />
+        <div className="grid gap-4 grid-cols-3 grid-rows-3 items-center">
           {isLoading ? (
-            <SkeletonCard count={6}/>
+            <SkeletonCard count={6} />
           ) : (
             product.map((list, index) => {
               return (
                 <Card
+                  key={index}
                   title={list.attributes.title}
                   price={list.attributes.price}
                   imgsrc={
@@ -43,9 +46,7 @@ const products = () => {
             })
           )}
         </div>
-      </div>
-    </main>
+      </section>
+    </Wrapper>
   );
-};
-
-export default products;
+}
