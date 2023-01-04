@@ -1,7 +1,7 @@
 import React from "react";
-const Wrapper = ({ children, styling }) => {
+const Wrapper = ({ children, styles, className }) => {
   return (
-    <main style={styling} className="container mx-auto px-2 my-6">
+    <main styles={styles} className={"container mx-auto px-2 my-6 " + className}>
       {children}
     </main>
   );

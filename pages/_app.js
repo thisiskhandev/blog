@@ -3,7 +3,7 @@ import "../styles/globals.css";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Header from "./components/Header";
-
+import 'react-toastify/dist/ReactToastify.css';
 function MyApp({ Component, pageProps }) {
   return (
     <>

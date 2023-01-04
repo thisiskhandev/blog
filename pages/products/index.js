@@ -28,7 +28,7 @@ export default function Products() {
         <div className="grid gap-10 grid-cols-3 grid-rows-3 place-items-center">
           {isLoading ? (
             <SkeletonCard count={6} />
-          ) : (
+          ) : product ? (
             product.map((list, index) => {
               return (
                 <Card
@@ -44,6 +44,8 @@ export default function Products() {
                 />
               );
             })
+          ) : (
+            <h2>☹️ No Products found!</h2>
           )}
         </div>
       </section>
