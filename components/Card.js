@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
-import DefaultImg from "../../assets/images/default-product-image.png";
-import styles from "../../styles/Product.module.css";
+import DefaultImg from "assets/images/default-product-image.png";
+import styles from "styles/Product.module.css";
 
 export default function Card(props) {
   const { title, desc, price, imgsrc } = props;

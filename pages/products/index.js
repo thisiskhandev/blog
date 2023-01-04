@@ -1,10 +1,10 @@
-import Card from "@components/Card";
+import Card from "components/Card";
 import productsList from "../api/API";
 import { useEffect, useState } from "react";
-import { SERVER_URL } from "@components/constants";
-import SkeletonCard from "@components/SkeletonCard";
-import Wrapper from "@components/Wrapper";
-import Headings from "@components/Headings";
+import { SERVER_URL } from "components/constants";
+import SkeletonCard from "components/SkeletonCard";
+import Wrapper from "components/Wrapper";
+import Headings from "components/Headings";
 
 export default function Products() {
   const [product, setProduct] = useState([]);

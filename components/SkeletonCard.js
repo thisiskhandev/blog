@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const SkeletonCard = (props) => {
   return [...Array(props.count)].map(() => {

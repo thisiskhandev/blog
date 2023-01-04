@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
-import Wrapper from "@components/Wrapper";
-import CTA from "@components/CTA";
+import Wrapper from "components/Wrapper";
+import CTA from "components/CTA";
 import styles from "@styles/404.module.css";
 import { ToastContainer, toast } from "react-toastify";
 import { useEffect, useState } from "react";
