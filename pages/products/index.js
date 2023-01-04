@@ -25,7 +25,7 @@ export default function Products() {
     <Wrapper>
       <section>
         <Headings />
-        <div className="grid gap-4 grid-cols-3 grid-rows-3 items-center">
+        <div className="grid gap-10 grid-cols-3 grid-rows-3 place-items-center">
           {isLoading ? (
             <SkeletonCard count={6} />
           ) : (
