@@ -2,11 +2,12 @@ import Image from "next/image";
 import React from "react";
 import DefaultImg from "assets/images/default-product-image.png";
 import styles from "styles/Product.module.css";
+import Link from "next/link";
 
 export default function Card(props) {
-  const { title, desc, price, imgsrc } = props;
+  const { title, desc, price, imgsrc, path } = props;
   return (
-    <div className="card card-compact w-96 bg-base-100 shadow-xl">
+    <div className="card card-compact w-96 bg-base-100 shadow-xl h-full">
       <figure>
         <Image
           src={imgsrc || DefaultImg}
@@ -20,12 +21,14 @@ export default function Card(props) {
         <h2 className="card-title">{title || "TITLE"}</h2>
         <p style={{ ...excerpt }}>{desc || "Description"}</p>
         <div className="card-actions justify-end">
-          {price ? (
+          {price && typeof Number ? (
             <button className="btn btn-primary">
               Buy ({"$" + price || 0.0})
             </button>
           ) : (
-            <a className="btn btn-primary">Read More</a>
+            <Link href={path || "/"} className="btn btn-primary">
+              Read More
+            </Link>
           )}
         </div>
       </div>

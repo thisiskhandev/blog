@@ -1,4 +1,4 @@
-import { API_URL } from "../../components/constants";
+import { API_URL } from "components/constants";
 
 const productsList = async () => {
   let res = await fetch(`${API_URL}/products?populate=*`);
