@@ -21,30 +21,34 @@ export const getStaticProps = async () => {
 };
 
 const Blogs = ({ news }) => {
-  // console.log(news);
+  console.log(news);
   return (
     <>
       <Wrapper styles={styling}>
         <section>
           <Headings />
           <div className="grid gap-10 grid-cols-3 place-items-center">
-            {news.articles.slice(0, 6).map((elem, index) => {
-              {
-                /* let titlee = elem.title
+            {news.articles ? (
+              news.articles.slice(0, 6).map((elem, index) => {
+                {
+                  /* let titlee = elem.title
                 .replaceAll(" ", "-")
                 .toLowerCase()
                 .replace(/[^-a-z0-9]+/g, ""); */
-              }
-              return (
-                <Card
-                  key={index}
-                  title={elem.title}
-                  path={`/blog/${index + 1}`}
-                  imgsrc={elem.urlToImage}
-                  desc={elem.description}
-                />
-              );
-            })}
+                }
+                return (
+                  <Card
+                    key={index}
+                    title={elem.title}
+                    path={`/blog/${index + 1}`}
+                    imgsrc={elem.urlToImage}
+                    desc={elem.description}
+                  />
+                );
+              })
+            ) : (
+              <p>No news found!</p>
+            )}
           </div>
           <div className="w-80 mx-auto my-24">
             <div className="btn-group grid grid-cols-2">
